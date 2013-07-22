@@ -34,4 +34,17 @@ describe "Static Pages" do
       expect(page).to have_title('About')
     end
   end
+
+   describe "Contact Us" do
+     let(:contact) {'Contact'}
+     before {visit static_pages_contact_path}
+     it "should have content 'Contact Us'" do
+       expect(page).to have_content(contact)
+     end
+
+     it "should have title 'Contact'" do
+       expect(page).to have_title(contact)
+     end
+   end
+
 end
