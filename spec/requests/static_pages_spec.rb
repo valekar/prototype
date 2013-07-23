@@ -11,10 +11,18 @@ describe "Static Pages" do
      it "should have title 'Prototype App | Home'" do
         expect(page).to have_title('Prototype App | Home')
      end
+
+     it "should have base title 'Prototype App'" do
+       expect(page).to have_title('Prototype App')
+     end
+
+     it "should not have a custom title" do
+       expect(page).not_to have_title('|   Homee')
+     end
    end
 
   describe "Help Page" do
-    before {visit static_pages_help_path}
+    before {visit help_path}
     it  "should have content 'Help Page'" do
       expect(page).to have_content('Help Page')
     end
@@ -25,7 +33,7 @@ describe "Static Pages" do
   end
 
   describe "About Us" do
-    before {visit static_pages_about_path}
+    before {visit about_path}
     it "should have content 'About Us'" do
       expect(page).to have_content('About Us')
     end
@@ -37,7 +45,7 @@ describe "Static Pages" do
 
    describe "Contact Us" do
      let(:contact) {'Contact'}
-     before {visit static_pages_contact_path}
+     before {visit contact_path}
      it "should have content 'Contact Us'" do
        expect(page).to have_content(contact)
      end
