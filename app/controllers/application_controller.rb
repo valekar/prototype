@@ -42,6 +42,27 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.url
   end
 
-  helper_method :signed_in?,:current_user,:sign_out,:sign_in,:current_user?,:redirect_back_or,:store_location
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+
+  def wrap(content)
+    sanitize(raw(content.split.map{ |s| wrap_long_string(s) }.join(' ')))
+  end
+
+  helper_method :signed_in?,:current_user,:sign_out,:sign_in,:current_user?,:redirect_back_or,:store_location,:signed_in_user,:wrap
+
+
+  private
+
+  def wrap_long_string(text, max_width = 30)
+    zero_width_space = "&#8203;"
+    regex = /.{1,#{max_width}}/
+    (text.length < max_width) ? text :
+        text.scan(regex).join(zero_width_space)
+  end
 
 end
