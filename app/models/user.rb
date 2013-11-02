@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   before_save { self.email = email.downcase }
   validates :name,presence: true, length: {maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -15,7 +16,16 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 } , :unless => :password
+  validates :password_confirmation, presence: true, :unless => :password_confirmation
+
+
+
+  #This is for logging in through different providers
+  has_many :identities
+
+  attr_accessible :remote_image_url,:image,:name,:password,:password_confirmation,:email,:remember_token
+  mount_uploader :image,ImageUploader
 
 
   def User.new_remember_token
@@ -43,9 +53,19 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def self.from_omniauth(auth)
+    user = User.includes(:identities)
+      .where(:identities =>{uid:auth.uid,provider:auth.provider}).first
+  end
+
+
+
   private
 
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
   end
+
+
+
 end

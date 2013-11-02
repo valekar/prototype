@@ -12,5 +12,15 @@
                   data: { confirm: "You sure?" },
                   title: feed_item.content %>
   <% end %>
+
+  <% @commentable = feed_item%>
+
+
+  <div id = "comments">
+    <%feed_item.comments.each do |comment| %>
+        <%=  comment.content %>
+    <% end %>
+  </div>
+  <%= render "comments/form" %>
 </li>
 >

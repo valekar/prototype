@@ -1,39 +1,80 @@
 <% provide(:title, 'Home') %>
-<h1>Home Page</h1>
+
 <% if signed_in? %>
-    <div class="row">
-      <aside class="span4">
-        <section>
-          <%= render 'shared/user_info' %>
-        </section>
-        <section>
-          <%= render 'shared/stats' %>
-        </section>
-        <section>
-          <%= render 'shared/micropost_form' %>
-        </section>
-      </aside>
+
+    <div>
+      <input type = "text" ng-model="data.text"/>
+      {{ data.text }}
+
     </div>
 
-    <div class="span8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+
+    <div class="row-fluid">
+      <div class="span2">
+        <%= render 'shared/user_info' %>
+        <%= render 'shared/stats' %>
+      </div>
+
+
+      <div class="span7">
+        <div class="span8">
+          <%#= render 'shared/micropost_form' %>
+
+          <div id="wrapper" ui-view="">
+          </div>
+
+          <h3>Micropost Feed</h3>
+          <%= render 'shared/feed' %>
+        </div>
+        <div class="span4">
+
+        </div>
+
+      </div>
+
+      <div class="span3">
+
+      </div>
     </div>
-    </div>
+
 
 <% else %>
-    <div class="center hero-unit">
-      <h1>Welcome to the Sample App</h1>
+    <div class="middle">
+        <ul class="nav nav-tabs nav-justified offset1">
 
-      <h2>
-        This is the home page for the
-        <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-        sample application.
-      </h2>
+            <li><%= link_to "Home",root_path %></li>
+            <li><%= link_to "More", "#" %></li>
 
-      <%= link_to "Sign up now!", signup_path,
-                  class: "btn btn-large btn-primary" %>
-    </div>
+        </ul>
 
-    <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+        <div class="row-fluid">
+          <div class="span8">
+           This is where the fun begins
+            <!--<div class="flowplayer">
+              <video>
+                <source type="video/mp4" src="http://stream.flowplayer.org/bauhaus/624x260.mp4">
+              </video>
+            </div>-->
+          </div>
+
+            <div class="span3  text-center">
+
+                  <h3 class="text-center">Sign up</h3>
+
+
+              <%= render "shared/user_signup" %>
+              <hr/>
+
+              <%= link_to "Facebook","/auth/facebook",class:"btn btn-large btn-facebook" %>
+              <%= link_to "Linked In","/auth/linkedin",class:"btn btn-large  btn-linkedin" %>
+              <%#= link_to "Twitter","#",class:"btn-large  btn-twitter" %>
+
+            </div>
+
+
+
+        </div>
+
+        </div>
+
 <% end %>

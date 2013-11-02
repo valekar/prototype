@@ -1,11 +1,17 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container">
+    <div class="container-fluid">
+      <div class="nav-collapse collapse">
       <%= link_to image_tag("EX.png", alt: "Rails"), root_url, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
+          <li><%#= link_to "Home", root_path %></li>
+          <li><%#= link_to "Help", help_path %></li>
+
+
+
+
+
           <% if signed_in? %>
               <li><%= link_to "Users", users_path %></li>
               <li id="fat-menu" class="dropdown">
@@ -21,11 +27,25 @@
                   </li>
                 </ul>
               </li>
+
+              </ul>
           <% else %>
-              <li><%= link_to "Sign in", signin_path %></li>
+
+
+              <div >
+              <%= form_for(:session, url: sessions_path) do |f| %>
+                  <div class="form-horizontal">
+                  <%= f.text_field :email , class:"span2", placeholder:"Email"%>
+                  <%= f.password_field :password ,class:"span2" ,placeholder:"Password"%>
+
+                  <%= f.submit 'Sign in', class: "btn" %>
+                  </div>
+              <% end %>
+              </div>
           <% end %>
-        </ul>
+
       </nav>
     </div>
   </div>
+ </div>
 </header>

@@ -1,4 +1,7 @@
   Prototype::Application.routes.draw do
+  get "comments/index"
+  get "comments/new"
+  get "chats/room"
    # get "users/new"
 
     resources :users do
@@ -7,7 +10,9 @@
       end
     end
   resources :sessions,   only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
+  resources :microposts, only: [:create, :destroy] do
+    resources :comments
+  end
   resources :relationships, only: [:create, :destroy]
 
   get "static_pages/home"
@@ -31,13 +36,21 @@
   # You can have the root of your site routed with "root"
    root 'static_pages#home'
 
+  get  '/chatroom' => 'chats#room', :as => :chat
+
+  post '/new_message' => 'chats#new_message', :as => :new_message
+
+
+  #this is login through different providers
+  match '/auth/:provider/callback', to: 'identities#create' , via:[:get,:post]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
+  # Example resource route (maps HTTP verbs to controller   actions automatically):
   #   resources :products
 
   # Example resource route with options:

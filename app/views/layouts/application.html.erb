@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title><%=full_title(yield(:title))    %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%=render 'layouts/header' %>
-<div class="container">
+<html ng-app='myapp'>
+    <head>
+      <title><%=full_title(yield(:title))    %></title>
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "http://localhost:9292/faye.js" %>
+      <%= javascript_include_tag "application" %>
 
-  <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+      <%= csrf_meta_tags %>
 
-  <%= yield %>
-  <%= render 'layouts/footer' %>
-</div>
-</body>
+      <!-- 2. flowplayer -->
+      <script src="//releases.flowplayer.org/5.4.3/flowplayer.min.js"></script>
+
+      <!-- 3. skin -->
+      <link rel="stylesheet" href="//releases.flowplayer.org/5.4.3/skin/minimalist.css">
+
+
+    </head>
+    <body>
+    <%=render 'layouts/header' %>
+        <div class="container-fluid">
+
+          <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+
+          <%= yield %>
+
+
+
+          <%= render 'layouts/footer' %>
+        </div>
+    </body>
 </html>

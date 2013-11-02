@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
+//= require private_pub
+//= require angular/angular
+//= require angular/angular-resource
+//=require angular-ui-router
 //= require_tree .

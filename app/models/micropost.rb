@@ -1,4 +1,8 @@
 class Micropost < ActiveRecord::Base
+  attr_accessible :content
+
+  has_many :comments, as: :commentable
+
   belongs_to :user
   default_scope -> { order('created_at DESC') }
   validates :content, presence: true, length: { maximum: 140 }
