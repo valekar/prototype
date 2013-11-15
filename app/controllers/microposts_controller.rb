@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
   end
 
   def create
-=begin
+
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "Micropost created!"
@@ -17,13 +17,15 @@ class MicropostsController < ApplicationController
       @feed_items = []
       render 'static_pages/home'
     end
-=end
 
+
+=begin
     #respond_with current_user.microposts.create(params[:micropost_params])
 
     respond_to do |f|
       f.json { current_user.microposts.create(params[:micropost_params]) }
     end
+=end
 
   end
 

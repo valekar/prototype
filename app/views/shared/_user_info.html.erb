@@ -2,7 +2,7 @@
 
 </a>
 
-<%= image_tag current_user.image_url.to_s %>
+<%= image_tag current_user.image_url(:thumb).to_s %>
 <h4>
   <%= current_user.name %>
 </h4>

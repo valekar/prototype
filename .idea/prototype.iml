@@ -23,7 +23,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activerecord-deprecated_finders (v1.0.3, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v4.0.0, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.3.5, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="angular-rails-engine (v1.2.0.0, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="angularjs-rails (v1.2.0, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v4.0.0, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="atomic (v1.1.10, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt-ruby (v3.0.1, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
@@ -75,6 +75,7 @@
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.7.7, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_test (v0.0.2, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multipart-post (v1.2.0, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ng-rails-csrf (v0.1.0, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.6.0, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oauth (v0.4.7, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oauth2 (v0.8.1, RVM: ruby-2.0.0-preview1 [rails_project]) [gem]" level="application" />

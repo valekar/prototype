@@ -8,8 +8,8 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
-
-gem 'angular-rails-engine'
+gem 'ng-rails-csrf'
+gem 'angularjs-rails','>=1.2.0.rc1'
 
 #added these three for chat purpose
 gem 'thin'
